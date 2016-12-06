@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JsonPService } from '../../services/app.jsonp.services';
 
 @Component({
     selector: 'app-movies',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
     styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent {
-    movies = 'toto';
+
+    public constructor(private _jsonpService: JsonPService) {
+        this._jsonpService.getThePopularMovies()
+            .subscribe((movies) => {
+                console.log(movies);
+            });
+    }
 }
