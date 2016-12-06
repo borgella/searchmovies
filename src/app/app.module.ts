@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { JsonPService } from './services/app.jsonp.services';
@@ -20,7 +20,8 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    ReactiveFormsModule
   ],
   providers: [JsonPService],
   bootstrap: [AppComponent]
