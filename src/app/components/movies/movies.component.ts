@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { JsonPService } from '../../services/app.jsonp.services';
+import { SearchComponent } from '../search/search.components';
+
 
 @Component({
     selector: 'app-movies',
@@ -10,25 +11,20 @@ import { JsonPService } from '../../services/app.jsonp.services';
 export class MoviesComponent implements OnInit {
 
     moviesList: any;
-    searchControl: FormControl;
-    searchResults: any;
+    in_theathers: any;
 
-    public constructor(private _jsonpService: JsonPService) {
-        this.searchControl = new FormControl();
+    public constructor(protected _jsonpService: JsonPService) {
     }
 
     public ngOnInit() {
         this._jsonpService.getThePopularMovies()
             .subscribe((response) => {
                 this.moviesList = response.results;
-                console.log(this.moviesList);
-            }, (error) => console.log(' taking care of the get popular movies error later'));
+            }, (error) => console.log('taking care of the get popular movies error later'));
 
-        this.searchControl.valueChanges.subscribe( (title) => {
-            this._jsonpService.fetchMovies(title).subscribe( (response) => {
-                this.searchResults = response.results;
-                console.log(this.searchResults);
-            }, (error) => console.log(' taking care of the search value error later') );
-        });
+        this._jsonpService.getInTheathersNow()
+            .subscribe((response) => {
+                this.in_theathers = response.results;
+            }, (error) => console.log('taking care of get in theathers movies error later'));
     }
 }

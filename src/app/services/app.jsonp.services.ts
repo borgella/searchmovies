@@ -17,6 +17,12 @@ export class JsonPService {
             .map((res) => res.json() || {});
     }
 
+    public getInTheathersNow() {
+        // tslint:disable-next-line:max-line-length
+        return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2016-11-28&primary_release_date.lte=2016-12-7&api_key=' + this.api_key + '&callback=JSONP_CALLBACK')
+            .map((res) => res.json() || {});
+    }
+
     public fetchMovies(title) {
         // tslint:disable-next-line:max-line-length
         return this._jsonp.get('https://api.themoviedb.org/3/search/movie?query=' + title + '&sort_by=popularity.desc&api_key=' + this.api_key + '&callback=JSONP_CALLBACK')

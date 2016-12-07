@@ -9,9 +9,10 @@ import { JsonPService } from '../../services/app.jsonp.services';
 })
 export class SearchComponent implements OnInit {
     searchControl: FormControl;
-    searchResults; any;
-    public constructor(private _jsonpService: JsonPService) {
+    searchResults: Array<Object>;
+    public constructor(protected _jsonpService: JsonPService) {
         this.searchControl = new FormControl();
+        this.searchResults = new Array<Object>();
     }
 
     public ngOnInit() {
@@ -19,6 +20,7 @@ export class SearchComponent implements OnInit {
             this._jsonpService.fetchMovies(title)
                 .subscribe((response) => {
                     this.searchResults = response.results;
+                    console.log(this.searchResults);
                 }, (error) => console.log(' taking care of the search value error later'));
         });
     }
