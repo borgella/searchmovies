@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { JsonPService } from '../../services/app.jsonp.services';
 import { FormControl } from '@angular/forms';
+import { JsonPService } from '../../services/app.jsonp.services';
 
 @Component({
     selector: 'app-movies',
@@ -9,22 +9,26 @@ import { FormControl } from '@angular/forms';
 })
 export class MoviesComponent implements OnInit {
 
-    moviesList: Array<Object>;
-    searchControl = new FormControl();
+    moviesList: any;
+    searchControl: FormControl;
+    searchResults: any;
 
-    public constructor(private _jsonpService: JsonPService) { }
+    public constructor(private _jsonpService: JsonPService) {
+        this.searchControl = new FormControl();
+    }
 
     public ngOnInit() {
         this._jsonpService.getThePopularMovies()
             .subscribe((response) => {
                 this.moviesList = response.results;
                 console.log(this.moviesList);
-            });
+            }, (error) => console.log(' taking care of the get popular movies error later'));
 
         this.searchControl.valueChanges.subscribe( (title) => {
             this._jsonpService.fetchMovies(title).subscribe( (response) => {
-                console.log('This movie is: ' + response.results);
-            } );
+                this.searchResults = response.results;
+                console.log(this.searchResults);
+            }, (error) => console.log(' taking care of the search value error later') );
         });
     }
 }
