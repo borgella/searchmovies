@@ -5,9 +5,10 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { AppModuleRoutes } from './app.module.routes';
 
 import { JsonPService } from './services/app.jsonp.services';
+import { Auth0Service } from './services/app.auth0.services';
 
 import { AppComponent } from './app.component';
-import { ConnexionComponent } from './components/connexion/connexion.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { ProfilComponent } from './components/profil/profil.component';
 
@@ -16,7 +17,7 @@ import { ProfilComponent } from './components/profil/profil.component';
   declarations: [
     AppComponent,
     MoviesComponent,
-    ConnexionComponent,
+    NavbarComponent,
     ProfilComponent
   ],
   imports: [
@@ -27,7 +28,7 @@ import { ProfilComponent } from './components/profil/profil.component';
     ReactiveFormsModule,
     AppModuleRoutes
   ],
-  providers: [JsonPService],
+  providers: [JsonPService, Auth0Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
