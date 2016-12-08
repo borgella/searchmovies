@@ -6,11 +6,16 @@
     <div class="row">
       <div *ngFor="let movie of parentSearchMovies; let i = index;" class="col-md-2">
         <div *ngIf="i < 6">
-          <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
-          <h5>Title: {{movie.title}}</h5>
-          <p>Date: {{movie.release_date}}</p>
-          <p>Popularity: {{movie.popularity}}</p>
-          <button class="btn btn-primary btn-margin"> View More </button>
+          <div id="infos">
+            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
+            <h5>Title: {{movie.title}}</h5>
+            <p>Date: {{movie.release_date}}</p>
+            <p>Popularity: {{movie.popularity}}</p>
+          </div>
+
+          <div id="bouton">
+            <a href="#"><button class="btn btn-primary btn-margin"> View More </button></a>
+          </div>
         </div>
       </div>
     </div>
@@ -25,11 +30,16 @@
     <div class="row">
       <div *ngFor="let movie of moviesList; let i = index;" class="col-md-2">
         <div *ngIf="i < 6">
-          <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
-          <h5>Title: {{movie.title}}</h5>
-          <p>Date: {{movie.release_date}}</p>
-          <p>Popularity: {{movie.popularity}}</p>
-          <button class="btn btn-primary btn-margin"> View More </button>
+          <div id="infos">
+            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
+            <h5>Title: {{movie.title}}</h5>
+            <p>Date: {{movie.release_date}}</p>
+            <p>Popularity: {{movie.popularity}}</p>
+          </div>
+
+          <div id="bouton">
+            <a routerLink="/profile"><button class="btn btn-primary btn-margin"> View More </button></a>
+          </div>
         </div>
       </div>
     </div>
@@ -52,9 +62,9 @@
           </div>
 
           <div id="bouton">
-            <button class="btn btn-primary btn-margin"> View More </button>
+            <a href="#"><button class="btn btn-primary btn-margin"> View More </button></a>
           </div>
-          
+
         </div>
       </div>
     </div>

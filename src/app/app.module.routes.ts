@@ -6,12 +6,12 @@ import { ProfilComponent } from './components/profil/profil.component';
 const ApplicationRoutes: Routes = [
     {
         path: '',
-        component: ProfilComponent
+        component: NavbarComponent
     },
 
     {
-        path: 'connexion',
-        component: NavbarComponent
+        path: 'profile',
+        component: ProfilComponent
     }
 ];
 
