@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { JsonPService } from '../../services/app.jsonp.services';
 import { SearchComponent } from '../search/search.components';
 
@@ -6,15 +6,18 @@ import { SearchComponent } from '../search/search.components';
 @Component({
     selector: 'app-movies',
     templateUrl: './movies.component.html',
-    styleUrls: ['./movies.component.css']
+    styleUrls: ['./movies.component.css'],
 })
+
 export class MoviesComponent implements OnInit {
 
-    moviesList: any;
-    in_theathers: any;
+    moviesList: Array<Object>;
+    in_theathers: Array<Object>;
 
-    public constructor(protected _jsonpService: JsonPService) {
-    }
+    @Input()
+    parentSearchMovies: SearchComponent;
+
+    public constructor(protected _jsonpService: JsonPService) { }
 
     public ngOnInit() {
         this._jsonpService.getThePopularMovies()
@@ -27,4 +30,5 @@ export class MoviesComponent implements OnInit {
                 this.in_theathers = response.results;
             }, (error) => console.log('taking care of get in theathers movies error later'));
     }
+
 }
