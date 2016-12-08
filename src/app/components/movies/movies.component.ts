@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { JsonPService } from '../../services/app.jsonp.services';
-import { SearchComponent } from '../search/search.components';
+import { ConnexionComponent } from '../connexion/connexion.component';
 
 
 @Component({
@@ -13,9 +13,7 @@ export class MoviesComponent implements OnInit {
 
     moviesList: Array<Object>;
     in_theathers: Array<Object>;
-
-    @Input()
-    parentSearchMovies: SearchComponent;
+    @Input() parentSearchMovies: ConnexionComponent;
 
     public constructor(protected _jsonpService: JsonPService) { }
 
