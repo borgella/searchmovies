@@ -13,9 +13,13 @@ export class MoviesComponent implements OnInit {
 
     moviesList: Array<Object>;
     in_theathers: Array<Object>;
+    movie: Object;
+    isValue: boolean;
     @Input() parentSearchMovies: NavbarComponent;
 
-    public constructor(protected _jsonpService: JsonPService) { }
+    public constructor(protected _jsonpService: JsonPService) {
+        this.isValue = false;
+    }
 
     public ngOnInit() {
         this._jsonpService.getThePopularMovies()
@@ -29,4 +33,16 @@ export class MoviesComponent implements OnInit {
             }, (error) => console.log('taking care of get in theathers movies error later'));
     }
 
+    public viewMore(idMovie) {
+        this._jsonpService.getMovie(idMovie)
+            .subscribe((response) => {
+                this.movie = response;
+                this.isValue = true;
+            }, (error) => console.log('taking care of get in theathers movies error later'));
+    }
+
+    public closeDetail() {
+        this.isValue = false;
+    }
 }
+

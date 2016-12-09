@@ -28,4 +28,10 @@ export class JsonPService {
         return this._jsonp.get('https://api.themoviedb.org/3/search/movie?query=' + title + '&sort_by=popularity.desc&api_key=' + this.api_key + '&callback=JSONP_CALLBACK')
             .map((res) => res.json() || {});
     }
+
+    public getMovie(idMovie) {
+        // tslint:disable-next-line:max-line-length
+        return this._jsonp.get('https://api.themoviedb.org/3/movie/' + idMovie + '?callback=JSONP_CALLBACK&api_key=' + this.api_key)
+                .map((res) => res.json() || {});
+    }
 }
