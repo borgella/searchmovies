@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
             this._jsonpService.fetchMovies(title)
                 .subscribe((response) => {
                     this.searchResults = response.results;
-                }, (error) => this.searchResults.length = 0);
+                }, (error) => this.searchResults = []);
         });
     }
 }

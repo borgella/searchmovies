@@ -1,106 +1,109 @@
 <div class="container-fluid">
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a routerLink="/" *ngIf="auth0.authenticated()"></a>
+          </li>
+          <li><a href="#" (click)="auth0.login()" *ngIf="!auth0.authenticated()"> Login</a></li>
+          <li><a href="#" (click)="auth0.logout()" *ngIf="auth0.authenticated()"> Logout</a></li>
+        </ul>
+
+        <div class="navbar-form navbar-right">
+          <div id="imaginary_container">
+            <div id="searching" class="input-group stylish-input-group" *ngIf="auth0.authenticated()">
+              <input type="search" class="form-control" placeholder="Search for a movie" [formControl]="searchControl">
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a routerLink="/" *ngIf="auth0.authenticated()"></a></li>
-                    <li><a href="#" (click)="auth0.login()" *ngIf="!auth0.authenticated()"> Login</a></li>
-                    <li><a href="#" (click)="auth0.logout()" *ngIf="auth0.authenticated()"> Logout</a></li>
-                </ul>
-
-                <div class="navbar-form navbar-right">
-                    <div id="imaginary_container">
-                        <div id="searching" class="input-group stylish-input-group" *ngIf="auth0.authenticated()">
-                            <input type="search" class="form-control" placeholder="Search for a movie" [formControl]="searchControl">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div *ngIf="auth0.authenticated()">
-        <div class="jumbotron">
-            <p>Cette application utilise l'API du site "themoviedb.org" qui met à disposition une base de données de films. Les recherches sont filtrées
-                selon des critères bien définis, comme par exemple les plus populaires, ceux qui sont actuellement
-                à l’affiche ect...</p>
-        </div>
-        <app-movies [parentSearchResults]="searchResults"></app-movies>
-    </div>
-</div>
-
-  <div class="container-fluid" *ngIf="!auth0.authenticated()">
-    <div class="jumbotron"> 
-      <p>
-        Cette application a été concue dans le but d'approndir encore plus mes connaissances en AngularJs 2, ce que voyez traduit l'expérience de mon apprentissage avec ce framework.
-        Clique sur le lien pour voir le code source :<a href="https://github.com/borgella/searchmovies" target="_blank">  borgella github</a><br>
-        This application has been designed in order to improve my knowledge in angularJs 2, which is the experience of my learning with this framework.
-        Click on the link to view the source code: <a href="https://github.com/borgella/searchmovies" target="_blank">  borgella github</a>
-      </p>
-    </div>
-    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
-
-      <!-- Overlay -->
-      <div class="overlay"></div>
-
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#bs-carousel" data-slide-to="1"></li>
-        <li data-target="#bs-carousel" data-slide-to="2"></li>
-        <li data-target="#bs-carousel" data-slide-to="3"></li>
-        <li data-target="#bs-carousel" data-slide-to="4"></li>
-        <li data-target="#bs-carousel" data-slide-to="5"></li>
-        <li data-target="#bs-carousel" data-slide-to="6"></li>
-      </ol>
-
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item slides active">
-          <div class="slide-1"></div>
-          <div class="hero"> </div>
-        </div>
-
-        <div class="item slides">
-          <div class="slide-2"></div>
-          <div class="hero"></div>
-        </div>
-
-        <div class="item slides">
-          <div class="slide-3"></div>
-          <div class="hero"></div>
-        </div>
-
-        <div class="item slides">
-          <div class="slide-4"></div>
-          <div class="hero"></div>
-        </div>
-
-        <div class="item slides">
-          <div class="slide-5"></div>
-          <div class="hero">
           </div>
-        </div>
-
-        <div class="item slides">
-          <div class="slide-6"></div>
-          <div class="hero"></div>
-        </div>
-
-        <div class="item slides">
-          <div class="slide-7"></div>
-          <div class="hero"></div>
         </div>
       </div>
     </div>
+  </nav>
 
+  <div *ngIf="auth0.authenticated()">
+    <div class="jumbotron">
+      <p>Cette application utilise l'API du site "themoviedb.org" qui met à disposition une base de données de films. Les recherches
+        sont filtrées selon des critères bien définis, comme par exemple les plus populaires, ceux qui sont actuellement
+        à l’affiche ect...</p>
+    </div>
+    <app-movies [parentSearchResults]="searchResults"></app-movies>
   </div>
+</div>
+
+<div class="container-fluid" *ngIf="!auth0.authenticated()">
+  <div class="jumbotron">
+    <p>
+      Cette application a été concue dans le but d'approndir encore plus mes connaissances en AngularJs 2, ce que voyez traduit
+      l'expérience de mon apprentissage avec ce framework. Clique sur le lien pour voir le code source :<a href="https://github.com/borgella/searchmovies"
+        target="_blank">  borgella github</a><br> This application has been designed in order to improve my knowledge in angularJs
+      2, which is the experience of my learning with this framework. Click on the link to view the source code: <a href="https://github.com/borgella/searchmovies"
+        target="_blank">  borgella github</a>
+    </p>
+  </div>
+  <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#bs-carousel" data-slide-to="1"></li>
+      <li data-target="#bs-carousel" data-slide-to="2"></li>
+      <li data-target="#bs-carousel" data-slide-to="3"></li>
+      <li data-target="#bs-carousel" data-slide-to="4"></li>
+      <li data-target="#bs-carousel" data-slide-to="5"></li>
+      <li data-target="#bs-carousel" data-slide-to="6"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item slides active">
+        <div class="slide-1"></div>
+        <div class="hero"> </div>
+      </div>
+
+      <div class="item slides">
+        <div class="slide-2"></div>
+        <div class="hero"></div>
+      </div>
+
+      <div class="item slides">
+        <div class="slide-3"></div>
+        <div class="hero"></div>
+      </div>
+
+      <div class="item slides">
+        <div class="slide-4"></div>
+        <div class="hero"></div>
+      </div>
+
+      <div class="item slides">
+        <div class="slide-5"></div>
+        <div class="hero">
+        </div>
+      </div>
+
+      <div class="item slides">
+        <div class="slide-6"></div>
+        <div class="hero"></div>
+      </div>
+
+      <div class="item slides">
+        <div class="slide-7"></div>
+        <div class="hero"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
