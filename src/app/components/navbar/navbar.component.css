@@ -175,6 +175,7 @@ p {
   background-position: center center;
   background-repeat: no-repeat;
 }
+
 .fade-carousel .slides .slide-1 {
   background-image: url('http://zupimages.net/up/16/49/beie.jpg');
 }
@@ -204,7 +205,11 @@ p {
 }
 @media screen and (max-width: 640px){
     .hero h1 { font-size: 4em; }
-}
+    .item slides {
+       background-image: 5%;
+    }    
+  }
+
 footer {
   background-color:#000;
   padding: 25px 0;

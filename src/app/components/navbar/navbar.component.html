@@ -30,9 +30,9 @@
 
     <div *ngIf="auth0.authenticated()">
         <div class="jumbotron">
-            <p>Ce projet se connecte à la base de données afin de mettre à la disposition des films. Ces données sont filtrées
-                selon des critères bien définis, c’est-à-dire selon les plus populaires ainsi que ceux qui sont actuellement
-                à l’affiche...</p>
+            <p>Cette application utilise l'API du site "themoviedb.org" qui met à disposition une base de données de films. Les recherches sont filtrées
+                selon des critères bien définis, comme par exemple les plus populaires, ceux qui sont actuellement
+                à l’affiche ect...</p>
         </div>
         <app-movies [parentSearchMovies]="searchResults"></app-movies>
     </div>
