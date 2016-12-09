@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { JsonPService } from '../../services/app.jsonp.services';
-import { NavbarComponent } from '../navbar/navbar.component';
-
 
 @Component({
     selector: 'app-movies',
@@ -15,7 +13,7 @@ export class MoviesComponent implements OnInit {
     in_theathers: Array<Object>;
     movie: Object;
     isValue: boolean;
-    @Input() parentSearchMovies: NavbarComponent;
+    @Input() parentSearchResults: Array<Object>;
 
     public constructor(protected _jsonpService: JsonPService) {
         this.isValue = false;

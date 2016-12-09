@@ -16,8 +16,8 @@
         </div>
         <div id="description" class="col-md-9">
           <p *ngIf="movie.overview">Description: {{movie.overview}}</p>
-          <p *ngIf="movie.production_companies"> Produce by: {{movie.production_companies[0].name}}</p>
-          <p *ngIf="movie.production_companies">Country: {{movie.production_countries[0].name}}</p>
+          <p *ngIf="movie.production_companies[0]"> Produce by: {{movie.production_companies[0].name}}</p>
+          <p *ngIf="movie.production_companies[0]">Country: {{movie.production_countries[0].name}}</p>
           <p *ngIf="movie.homepage"> Home page:
             <a href="{{movie.homepage}}" target="_blank">Movie's website link</a>
           </p>
@@ -29,13 +29,13 @@
   </div>
 </div>
 
-<div *ngIf="parentSearchMovies.length" class="panel panel-default">
+<div *ngIf="parentSearchResults.length" class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Search Movies</h3>
   </div>
   <div class="panel-body">
     <div class="row">
-      <div *ngFor="let movie of parentSearchMovies; let i = index;" class="col-md-2 col-sm-4 col-xs-12">
+      <div *ngFor="let movie of parentSearchResults; let i = index;" class="col-md-2 col-sm-4 col-xs-12">
         <div *ngIf="i < 6">
           <div id="infos">
             <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
