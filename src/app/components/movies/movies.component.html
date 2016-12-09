@@ -10,9 +10,7 @@
           <h5>Title: {{movie.title}}</h5>
           <p *ngIf="movie.release_Date">Date: {{movie.release_date}}</p>
           <p *ngIf="movie.popularity">Popularity: {{movie.popularity}}</p>
-          <div class="bouton">
-            <p><a (click)="closeDetail()"><button class="btn btn-primary btn-margin"> Close </button></a></p>
-          </div>
+
         </div>
         <div id="description" class="col-md-9">
           <p *ngIf="movie.overview">Description: {{movie.overview}}</p>
@@ -21,6 +19,11 @@
           <p *ngIf="movie.homepage"> Home page:
             <a href="{{movie.homepage}}" target="_blank">Movie's website link</a>
           </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="bouton">
+          <p><a (click)="closeDetail()"><button class="btn btn-primary btn-margin"> Close </button></a></p>
         </div>
       </div>
     </div>
@@ -54,7 +57,7 @@
   </div>
 </div>
 
-<div *ngIf="!isValue"  class="panel panel-default">
+<div *ngIf="!isValue" class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Popular Movies</h3>
   </div>
