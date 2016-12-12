@@ -5,8 +5,10 @@
  */
 
 #searching {
-    margin-right: 10px;
+    margin-right: 50px;
+     border-width: 20px;    
 }
+
 
 .heading-font {
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
