@@ -1,10 +1,10 @@
-<div *ngIf="childrenSearchResults.length" class="panel panel-default">
+<div *ngIf="childSearchResults.length" class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Search Movies</h3>
     </div>
     <div class="panel-body">
         <div class="row">
-            <div *ngFor="let movie of childrenSearchResults; let index = index;" class="col-md-2 col-sm-4 col-xs-12">
+            <div *ngFor="let movie of childSearchResults; let index = index;" class="col-md-2 col-sm-4 col-xs-12">
                     <div id="infos">
                         <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
                         <h5><strong>Title:</strong> {{movie.title}}</h5>
