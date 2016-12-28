@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Auth0Service } from '../../services/app.auth0.services';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-searchmovies',
@@ -8,6 +7,11 @@ import { Auth0Service } from '../../services/app.auth0.services';
 })
 export class SearchMoviesComponent {
 
-    public constructor(private auth0: Auth0Service) {}
+    @Input() childrenSearchResults: Array<Object>;
+    @Output() childMovieId = new EventEmitter<number>();
+
+    public viewMore(movieId: number) {
+        this.childMovieId.emit(movieId);
+    }
 
  }

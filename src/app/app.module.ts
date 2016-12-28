@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import { SearchMoviesComponent } from './components/searchmovies/search.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ProfilComponent } from './components/profil/profil.component';
     AppComponent,
     MoviesComponent,
     NavbarComponent,
-    ProfilComponent
+    ProfilComponent,
+    SearchMoviesComponent
   ],
   imports: [
     BrowserModule,

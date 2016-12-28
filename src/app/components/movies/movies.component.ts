@@ -31,8 +31,16 @@ export class MoviesComponent implements OnInit {
             }, (error) => console.log('taking care of get in theathers movies error later'));
     }
 
-    public viewMore(idMovie: number) {
-        this._jsonpService.getMovie(idMovie)
+    public viewMore(movieId: number) {
+        this._jsonpService.getMovie(movieId)
+            .subscribe((response) => {
+                this.movie = response;
+                this.isClose = true;
+            }, (error) => console.log('taking care of get in theathers movies error later'));
+    }
+
+    public viewMoreParent(movieId: number) {
+        this._jsonpService.getMovie(movieId)
             .subscribe((response) => {
                 this.movie = response;
                 this.isClose = true;

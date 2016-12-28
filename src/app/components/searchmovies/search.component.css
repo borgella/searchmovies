@@ -1,0 +1,16 @@
+img {
+    width: 100px;
+    margin: auto;
+}
+
+#infos{
+  height: 300px;
+}
+
+hr{
+  font-weight: 2px;
+}
+
+button{
+    margin: auto;
+}
