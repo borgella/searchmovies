@@ -5,10 +5,12 @@
  */
 
 #searching {
-    margin-right: 50px;
-    border-width: 20px;  
-    width: 300px;
-    border-radius: 15px;  
+    margin-right: 50px; 
+    width: 380px;
+}
+
+#searching input {
+  border-radius: 15px;
 }
 
 .heading-font {
@@ -208,10 +210,10 @@ p {
 }
 @media screen and (max-width: 640px){
     .hero h1 { font-size: 4em; }
-    .item slides {
-       background-image: 5%;
-    }    
-  }
+    .item slides { background-image: 5%; }
+     #searching { width: 100%;}    
+}
+
 
 footer {
   background-color:#000;
