@@ -7,11 +7,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SearchMoviesComponent {
 
-    @Input() childrenSearchResults: Array<Object>;
-    @Output() childMovieId = new EventEmitter<number>();
+    @Input() childSearchResults: Array<Object>;
+    @Output() childSearchMovieId = new EventEmitter<number>();
 
     public viewMore(movieId: number) {
-        this.childMovieId.emit(movieId);
+        this.childSearchMovieId.emit(movieId);
     }
 
  }

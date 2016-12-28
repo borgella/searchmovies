@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<app-searchmovies [childrenSearchResults]= "parentSearchResults" (childMovieId)= "viewMoreParent($event)"></app-searchmovies>
+<app-searchmovies [childSearchResults]= "parentSearchResults" (childSearchMovieId)= "viewMoreParent($event)"></app-searchmovies>
 
 <div *ngIf="!isValue" class="panel panel-default">
   <div class="panel-heading">
