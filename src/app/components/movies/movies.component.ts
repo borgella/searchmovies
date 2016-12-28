@@ -9,7 +9,6 @@ import { JsonPService } from '../../services/app.jsonp.services';
 
 export class MoviesComponent implements OnInit {
 
-    private moviesList: Array<Object>;
     private in_theathers: Array<Object>;
     private movie: Object;
     private isClose: boolean;
@@ -20,11 +19,6 @@ export class MoviesComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this._jsonpService.getThePopularMovies()
-            .subscribe((response) => {
-                this.moviesList = response.results;
-            }, (error) => console.log('taking care of the get popular movies error later'));
-
         this._jsonpService.getInTheathersNow()
             .subscribe((response) => {
                 this.in_theathers = response.results;

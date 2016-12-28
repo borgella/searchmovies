@@ -1,13 +1,27 @@
-import { Component } from '@angular/core';
-import { Auth0Service } from '../../services/app.auth0.services';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { JsonPService } from '../../services/app.jsonp.services';
 
 @Component({
     selector: 'app-popular',
     templateUrl: 'popular.component.html',
     styleUrls: ['popular.component.css']
 })
-export class PopularMoviesComponent {
+export class PopularMoviesComponent implements OnInit {
 
-    public constructor(private auth0: Auth0Service) { }
+    private moviesList: Array<Object>;
+    @Output() childPopularMovieId = new EventEmitter<number>();
+
+    public constructor(private _jsonpService: JsonPService) { }
+
+    public ngOnInit() {
+        this._jsonpService.getThePopularMovies()
+            .subscribe((response) => {
+                this.moviesList = response.results;
+            }, (error) => console.log('taking care of the get popular movies error later'));
+    }
+
+    popularViewMore(movieId: number) {
+        this.childPopularMovieId.emit(movieId);
+    }
 
 }

@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { SearchMoviesComponent } from './components/searchmovies/search.component';
+import { PopularMoviesComponent } from './components/popularmovies/popular.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SearchMoviesComponent } from './components/searchmovies/search.componen
     MoviesComponent,
     NavbarComponent,
     ProfilComponent,
-    SearchMoviesComponent
+    SearchMoviesComponent,
+    PopularMoviesComponent
   ],
   imports: [
     BrowserModule,

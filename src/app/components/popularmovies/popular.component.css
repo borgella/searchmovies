@@ -1,0 +1,24 @@
+img {
+    width: 100px;
+    margin: auto;
+}
+
+#searching {
+    margin-right: 10px;
+}
+
+#infos{
+  height: 300px;
+}
+
+hr{
+  font-weight: 2px;
+}
+
+button{
+    margin: auto;
+}
+
+.lineIt {
+    display: inline;
+}

@@ -10,7 +10,7 @@ export class SearchMoviesComponent {
     @Input() childSearchResults: Array<Object>;
     @Output() childSearchMovieId = new EventEmitter<number>();
 
-    public viewMore(movieId: number) {
+    public searchViewMore(movieId: number) {
         this.childSearchMovieId.emit(movieId);
     }
 
