@@ -13,6 +13,7 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { SearchMoviesComponent } from './components/searchmovies/search.component';
 import { PopularMoviesComponent } from './components/popularmovies/popular.component';
+import { InTheatersComponent } from './components/theaters/intheaters.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PopularMoviesComponent } from './components/popularmovies/popular.compo
     NavbarComponent,
     ProfilComponent,
     SearchMoviesComponent,
-    PopularMoviesComponent
+    PopularMoviesComponent,
+    InTheatersComponent
   ],
   imports: [
     BrowserModule,

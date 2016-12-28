@@ -19,6 +19,17 @@ button{
     margin: auto;
 }
 
+#description {
+    margin: 10px 0px 10px 0px;
+    padding-right: 20px;
+}
+
+#description p{
+    text-align: justify;
+    line-height: 18px;
+    font-weight: 12px;
+}
+
 .lineIt {
     display: inline;
 }

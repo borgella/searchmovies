@@ -47,13 +47,13 @@
   </div>
 </div>
 
-<app-searchmovies [childSearchResults]="parentSearchResults" (childSearchMovieId)="viewMore($event)"></app-searchmovies>
+<app-searchmovies [childSearchResults]="parentSearchResults" (childSearchMovieId)= "viewMore($event)"></app-searchmovies>
 
-<app-popular *ngIf="!isClose" (childPopularMovieId)="viewMore($event)"></app-popular>
+<app-popular *ngIf="!isClose" (childPopularMovieId)= "viewMore($event)"></app-popular>
 
+<app-intheater *ngIf="!isClose" (childTheaterMovieId)= "viewMore($event)" ></app-intheater>
 
-
-<div *ngIf="!isClose" class="panel panel-default">
+<!--div *ngIf="!isClose" class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">In Theathers Now</h3>
   </div>
@@ -77,4 +77,4 @@
       </div>
     </div>
   </div>
-</div>
+</div-->
