@@ -52,29 +52,3 @@
 <app-popular *ngIf="!isClose" (childPopularMovieId)= "viewMore($event)"></app-popular>
 
 <app-intheater *ngIf="!isClose" (childTheaterMovieId)= "viewMore($event)" ></app-intheater>
-
-<!--div *ngIf="!isClose" class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">In Theathers Now</h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div *ngFor="let movie of in_theathers; let index = index" class="col-md-2 col-sm-3 col-xs-12">
-        <div *ngIf="index < 12">
-          <div id="infos">
-            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
-            <h5><strong>Title:</strong> {{movie.title}}</h5>
-            <p><strong>Date:</strong> {{movie.release_date}}</p>
-            <p><strong>Popularity:</strong> {{movie.popularity}}</p>
-          </div>
-
-          <div class="bouton">
-            <p><a (click)="viewMore(movie.id)"><button class="btn btn-primary btn-margin"> View More </button></a></p>
-          </div>
-          <hr>
-          <br>
-        </div>
-      </div>
-    </div>
-  </div>
-</div-->
