@@ -9,8 +9,8 @@ import { Auth0Service } from '../../services/app.auth0.services';
     styleUrls: ['/navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-    searchControl: FormControl;
-    searchResults: Array<Object>;
+    private searchControl: FormControl;
+    private searchResults: Array<Object>;
 
     public constructor(private _jsonpService: JsonPService, private auth0: Auth0Service) {
         this.searchControl = new FormControl();

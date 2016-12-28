@@ -9,14 +9,14 @@ import { JsonPService } from '../../services/app.jsonp.services';
 
 export class MoviesComponent implements OnInit {
 
-    moviesList: Array<Object>;
-    in_theathers: Array<Object>;
-    movie: Object;
-    isValue: boolean;
+    private moviesList: Array<Object>;
+    private in_theathers: Array<Object>;
+    private movie: Object;
+    private isClose: boolean;
     @Input() parentSearchResults: Array<Object>;
 
     public constructor(protected _jsonpService: JsonPService) {
-        this.isValue = false;
+        this.isClose = false;
     }
 
     public ngOnInit() {
@@ -35,12 +35,12 @@ export class MoviesComponent implements OnInit {
         this._jsonpService.getMovie(idMovie)
             .subscribe((response) => {
                 this.movie = response;
-                this.isValue = true;
+                this.isClose = true;
             }, (error) => console.log('taking care of get in theathers movies error later'));
     }
 
     public closeDetail() {
-        this.isValue = false;
+        this.isClose = false;
     }
 }
 
