@@ -19,17 +19,17 @@ export class JsonPService {
 
     public getInTheathersNow() {
         // tslint:disable-next-line:max-line-length
-        return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2016-11-15&primary_release_date.lte=2016-12-11&api_key=' + this.api_key + '&callback=JSONP_CALLBACK')
+        return this._jsonp.get('https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2016-12-1&primary_release_date.lte=2016-12-31&api_key=' + this.api_key + '&callback=JSONP_CALLBACK')
             .map((res) => res.json() || {});
     }
 
-    public fetchMovies(title) {
+    public fetchMovies(title: string) {
         // tslint:disable-next-line:max-line-length
         return this._jsonp.get('https://api.themoviedb.org/3/search/movie?query=' + title + '&sort_by=popularity.desc&api_key=' + this.api_key + '&callback=JSONP_CALLBACK')
             .map((res) => res.json() || {});
     }
 
-    public getMovie(idMovie) {
+    public getMovie(idMovie: number) {
         // tslint:disable-next-line:max-line-length
         return this._jsonp.get('https://api.themoviedb.org/3/movie/' + idMovie + '?callback=JSONP_CALLBACK&api_key=' + this.api_key)
                 .map((res) => res.json() || {});

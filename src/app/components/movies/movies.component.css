@@ -29,3 +29,7 @@ button{
     line-height: 18px;
     font-weight: 12px;
 }
+
+.lineIt {
+    display: inline;
+}

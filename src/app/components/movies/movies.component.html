@@ -7,16 +7,31 @@
       <div class="row">
         <div class="col-md-3">
           <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
-          <h5>Title: {{movie.title}}</h5>
-          <p *ngIf="movie.release_Date">Date: {{movie.release_date}}</p>
-          <p *ngIf="movie.popularity">Popularity: {{movie.popularity}}</p>
+          <h5><strong> {{movie.title}}</strong></h5>
+          <p *ngIf="movie.release_Date"> <strong>Date:</strong> {{movie.release_date}}</p>
+          <p *ngIf="movie.popularity"><strong>Popularity:</strong> {{movie.popularity}}</p>
 
         </div>
         <div id="description" class="col-md-9">
-          <p *ngIf="movie.overview">Description: {{movie.overview}}</p>
-          <p *ngIf="movie.production_companies[0]"> Produce by: {{movie.production_companies[0].name}}</p>
-          <p *ngIf="movie.production_companies[0]">Country: {{movie.production_countries[0].name}}</p>
-          <p *ngIf="movie.homepage"> Home page:
+          <p *ngIf="movie.overview"><strong>Description:</strong> {{movie.overview}}</p>
+          <div *ngIf="movie.production_companies.length">
+            <p class="lineIt"> <strong> Produce By:</strong> </p>
+            <span *ngFor="let company of movie.production_companies; let last = last;">
+                <p class="lineIt" *ngIf="!last"> {{company.name}}, </p>
+                <p class="lineIt" *ngIf= "last"> {{company.name}}. </p>
+            </span>
+          </div>
+          <br />
+          <div *ngIf="movie.production_countries.length">
+            <p class="lineIt" *ngIf="movie.production_countries.length == 1"><strong>Production Country:</strong> </p>
+            <p class="lineIt" *ngIf="movie.production_countries.length > 1"><strong> Production Countries:</strong> </p>
+            <span *ngFor="let country of movie.production_countries; let last = last">
+              <p class="lineIt" *ngIf="!last"> {{country.name}}, </p>
+              <p class="lineIt" *ngIf= "last"> {{country.name}}. </p>
+            </span>
+          </div>
+          <br />
+          <p *ngIf="movie.homepage"><strong>Home page:</strong>
             <a href="{{movie.homepage}}" target="_blank">Movie's website link</a>
           </p>
         </div>
@@ -42,9 +57,9 @@
         <div *ngIf="i < 6">
           <div id="infos">
             <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
-            <h5>Title: {{movie.title}}</h5>
-            <p>Date: {{movie.release_date}}</p>
-            <p>Popularity: {{movie.popularity}}</p>
+            <h5><strong>Title:</strong> {{movie.title}}</h5>
+            <p><strong>Date:</strong> {{movie.release_date}}</p>
+            <p><strong>Popularity:</strong> {{movie.popularity}}</p>
           </div>
           <div class="bouton">
             <p><a (click)="viewMore(movie.id)"><button class="btn btn-primary btn-margin"> View More </button></a></p>
@@ -64,12 +79,12 @@
   <div class="panel-body">
     <div class="row">
       <div *ngFor="let movie of moviesList; let i = index;" class="col-md-2 col-sm-3 col-xs-12">
-        <div class="movieinfos" *ngIf="i < 6">
+        <div class="movieinfos" *ngIf="i < 12">
           <div id="infos">
             <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
-            <h5>Title: {{movie.title}}</h5>
-            <p>Date: {{movie.release_date}}</p>
-            <p>Popularity: {{movie.popularity}}</p>
+            <h5><strong>Title:</strong> {{movie.title}}</h5>
+            <p><strong>Date:</strong> {{movie.release_date}}</p>
+            <p><strong>Popularity:</strong> {{movie.popularity}}</p>
           </div>
 
           <div class="bouton">
@@ -90,12 +105,12 @@
   <div class="panel-body">
     <div class="row">
       <div *ngFor="let movie of in_theathers; let i = index" class="col-md-2 col-sm-3 col-xs-12">
-        <div *ngIf="i < 6">
+        <div *ngIf="i < 12">
           <div id="infos">
             <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
-            <h5>Title: {{movie.title}}</h5>
-            <p>Date: {{movie.release_date}}</p>
-            <p>Popularity: {{movie.popularity}}</p>
+            <h5><strong>Title:</strong> {{movie.title}}</h5>
+            <p><strong>Date:</strong> {{movie.release_date}}</p>
+            <p><strong>Popularity:</strong> {{movie.popularity}}</p>
           </div>
 
           <div class="bouton">

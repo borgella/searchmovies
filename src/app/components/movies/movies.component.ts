@@ -31,7 +31,7 @@ export class MoviesComponent implements OnInit {
             }, (error) => console.log('taking care of get in theathers movies error later'));
     }
 
-    public viewMore(idMovie) {
+    public viewMore(idMovie: number) {
         this._jsonpService.getMovie(idMovie)
             .subscribe((response) => {
                 this.movie = response;

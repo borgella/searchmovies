@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this.searchControl.valueChanges.subscribe((title) => {
+        this.searchControl.valueChanges.subscribe((title: string) => {
             this._jsonpService.fetchMovies(title)
                 .subscribe((response) => {
                     this.searchResults = response.results;
